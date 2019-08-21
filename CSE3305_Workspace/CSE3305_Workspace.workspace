@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="CSE3305_Workspace" Database="" Version="10.0.0">
-  <Project Name="learningProgram" Path="learningProgram.project" Active="Yes"/>
+  <Project Name="learningProgram" Path="learningProgram.project" Active="No"/>
+  <Project Name="Thompson_CSE3305_Lab0" Path="Thompson_CSE3305_Lab0.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
       <Project Name="learningProgram" ConfigName="Debug"/>
+      <Project Name="Thompson_CSE3305_Lab0" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
       <Project Name="learningProgram" ConfigName="Release"/>
+      <Project Name="Thompson_CSE3305_Lab0" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
