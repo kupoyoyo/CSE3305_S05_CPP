@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo "----------Building project:[ learningProgram - Debug ]----------"
-	@"$(MAKE)" -f  "learningProgram.mk"
+	@echo "----------Building project:[ Thompson_CS3305_Lab0 - Debug ]----------"
+	@"$(MAKE)" -f  "Thompson_CS3305_Lab0.mk"
 clean:
-	@echo "----------Cleaning project:[ learningProgram - Debug ]----------"
-	@"$(MAKE)" -f  "learningProgram.mk" clean
+	@echo "----------Cleaning project:[ Thompson_CS3305_Lab0 - Debug ]----------"
+	@"$(MAKE)" -f  "Thompson_CS3305_Lab0.mk" clean
