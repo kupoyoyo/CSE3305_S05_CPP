@@ -6,6 +6,13 @@
     <TabInfo>
       <wxString Value="C:\Users\logan\Documents\GitHub\CSE3305_S05_CPP\CSE3305_Workspace\Thompson_Lab0.cpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="8" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\logan\Documents\GitHub\CSE3305_S05_CPP\CSE3305_Workspace\learningCode.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
       <int Value="5" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
