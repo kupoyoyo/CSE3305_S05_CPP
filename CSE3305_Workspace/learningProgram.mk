@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=logan
-Date                   :=22/08/2019
+Date                   :=23/08/2019
 CodeLitePath           :=C:/CodeLite
 LinkerName             :=C:/MinGW_Compiler/mingw64/bin/g++.exe
 SharedObjectLinkerName :=C:/MinGW_Compiler/mingw64/bin/g++.exe -shared -fPIC
@@ -62,11 +62,9 @@ AS       := C:/MinGW_Compiler/mingw64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\CodeLite
-Objects0=$(IntermediateDirectory)/learningCode.cpp$(ObjectSuffix) 
 
 
-
-Objects=$(Objects0) 
+Objects=
 
 ##
 ## Main Build Targets 
@@ -77,7 +75,6 @@ all: $(OutputFile)
 $(OutputFile): $(IntermediateDirectory)/.d $(Objects) 
 	@$(MakeDirCommand) $(@D)
 	@echo "" > $(IntermediateDirectory)/.d
-	@echo $(Objects0)  > $(ObjectsFileList)
 	$(LinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)
 
 MakeIntermediateDirs:
@@ -93,14 +90,6 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/learningCode.cpp$(ObjectSuffix): learningCode.cpp $(IntermediateDirectory)/learningCode.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/logan/Documents/GitHub/CSE3305_S05_CPP/CSE3305_Workspace/learningCode.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/learningCode.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/learningCode.cpp$(DependSuffix): learningCode.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/learningCode.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/learningCode.cpp$(DependSuffix) -MM learningCode.cpp
-
-$(IntermediateDirectory)/learningCode.cpp$(PreprocessSuffix): learningCode.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/learningCode.cpp$(PreprocessSuffix) learningCode.cpp
-
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
 ##
