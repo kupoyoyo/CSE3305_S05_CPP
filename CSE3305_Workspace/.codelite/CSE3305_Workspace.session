@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\logan\Documents\GitHub\CSE3305_S05_CPP\CSE3305_Workspace\CSE3305_Workspace.workspace">
-  <int Value="2" Name="m_selectedTab"/>
+  <int Value="0" Name="m_selectedTab"/>
   <wxString Value="C:\Users\logan\Documents\GitHub\CSE3305_S05_CPP\CSE3305_Workspace\CSE3305_Workspace.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="C:\Users\logan\Documents\GitHub\CSE3305_S05_CPP\CSE3305_Workspace\stats.cpp" Name="FileName"/>
+      <wxString Value="C:\Users\logan\Documents\GitHub\CSE3305_S05_CPP\CSE3305_Workspace\codeStuff.cpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="28" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\logan\Documents\GitHub\CSE3305_S05_CPP\CSE3305_Workspace\stats.h" Name="FileName"/>
-      <int Value="1" Name="FirstVisibleLine"/>
-      <int Value="2" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\logan\Documents\GitHub\CSE3305_S05_CPP\CSE3305_Workspace\statexam.cpp" Name="FileName"/>
-      <int Value="12" Name="FirstVisibleLine"/>
-      <int Value="13" Name="CurrentLine"/>
+      <int Value="5" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

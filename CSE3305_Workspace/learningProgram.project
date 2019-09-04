@@ -93,7 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <File Name="Lab0_iostream_ver"/>
+    <File Name="codeStuff.cpp"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

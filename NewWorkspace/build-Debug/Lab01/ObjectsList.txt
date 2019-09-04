@@ -1,0 +1,1 @@
+../build-Debug/Lab01/statexam.cpp.o ../build-Debug/Lab01/statimp.cpp.o   

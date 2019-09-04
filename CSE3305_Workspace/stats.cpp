@@ -1,41 +1,68 @@
+/*
+ * Class:       CS 3305L/01
+ * Term:        Fall 2019
+ * Name:        Logan Thompson
+ * Instructor:  Betty Kretlow
+ * Lab:         1
+ */
+
+#include <iostream>
+#include <assert.h>
 #include "stats.h"
 
-stats :: statistician(int s, int t, int u)
-    : 
-{}
+using namespace std;
 
-void stats :: next(double r)
+statistician :: statistician()
 {
-    
+    reset();
 }
 
-void stats :: reset()
+void statistician :: next(double r)
 {
-    
+    count++;
+    total += r;
+    if (r < tinyest || count == 1)
+        tinyest = r;
+    if (r > largest || count == 1)
+        largest = r;
+    cout << r << " has been added\n";
 }
 
-int stats :: length() const
+void statistician :: reset()
 {
-    
+    count = 0;
+    total = 0;
 }
 
-double stats :: sum() const
+int statistician :: length() const
 {
-    
+    cout << "The length of the list is: " << count << "\n";
+    return count;
 }
 
-double stats :: mean() const
+double statistician :: sum() const
 {
-    
+    cout << "The sum of the list is: " << total << "\n";
+    return total;
 }
 
-double stats :: minimum() const
+double statistician :: mean() const
+//Library facilities used: cassert
 {
-    
+    assert (length() > 0);
+    cout << "The mean is: " << total/count << "\n";
+    return total/count;
 }
 
-double stats :: maximum() const
+double statistician :: minimum() const
 {
-    
+    assert (length() > 0);
+    return tinyest;
+}
+
+double statistician :: maximum() const
+{
+    assert (length() > 0);
+    return largest;
 }
 
