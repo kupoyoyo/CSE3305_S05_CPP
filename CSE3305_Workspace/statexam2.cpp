@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <string.h>    // Provides memcpy function
-#include "stats.h"
+#include "stats2.h"
 
 using namespace std;
 

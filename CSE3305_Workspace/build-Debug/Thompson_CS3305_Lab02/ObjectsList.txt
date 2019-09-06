@@ -1,0 +1,1 @@
+../build-Debug/Thompson_CS3305_Lab02/up_stats2.cpp.o ../build-Debug/Thompson_CS3305_Lab02/up_statexam2.cpp.o   
