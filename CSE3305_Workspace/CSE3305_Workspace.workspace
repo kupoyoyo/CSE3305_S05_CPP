@@ -4,7 +4,10 @@
   <Project Name="Thompson_CS3305_Lab0" Path="Thompson_CSE3305_Lab0.project" Active="No"/>
   <Project Name="Thompson_CS3305_Lab1" Path="Thompson_CS3305_Lab1.project" Active="No"/>
   <Project Name="Thompson_CS3305_Lab2" Path="Thompson_CS3305_Lab02/Thompson_CS3305_Lab02.project" Active="No"/>
-  <Project Name="Thompson_CS3305_Lab3" Path="Thompson_CS3305_Lab3/Thompson_CS3305_Lab3.project" Active="Yes"/>
+  <Project Name="Thompson_CS3305_Lab3" Path="Thompson_CS3305_Lab3/Thompson_CS3305_Lab3.project" Active="No"/>
+  <Project Name="Thompson_CS3305_Assignment3" Path="Thompson_CS3305_Assignment3/Thompson_CS3305_Assignment3.project" Active="No"/>
+  <Project Name="Thompson_CS3305_Lab4" Path="Thompson_CS3305_Lab4/Thompson_CS3305_Lab4.project" Active="No"/>
+  <Project Name="Thompson_CS3305_Lab5" Path="Thompson_CS3305_Lab5/Thompson_CS3305_Lab5.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
@@ -13,6 +16,9 @@
       <Project Name="Thompson_CS3305_Lab1" ConfigName="Debug"/>
       <Project Name="Thompson_CS3305_Lab2" ConfigName="Debug"/>
       <Project Name="Thompson_CS3305_Lab3" ConfigName="Debug"/>
+      <Project Name="Thompson_CS3305_Assignment3" ConfigName="Debug"/>
+      <Project Name="Thompson_CS3305_Lab4" ConfigName="Debug"/>
+      <Project Name="Thompson_CS3305_Lab5" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -21,6 +27,9 @@
       <Project Name="Thompson_CS3305_Lab1" ConfigName="Release"/>
       <Project Name="Thompson_CS3305_Lab2" ConfigName="Release"/>
       <Project Name="Thompson_CS3305_Lab3" ConfigName="Release"/>
+      <Project Name="Thompson_CS3305_Assignment3" ConfigName="Release"/>
+      <Project Name="Thompson_CS3305_Lab4" ConfigName="Release"/>
+      <Project Name="Thompson_CS3305_Lab5" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
