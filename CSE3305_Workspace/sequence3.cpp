@@ -18,28 +18,43 @@ namespace main_savitch_5
     //Constructors and Destructor
     sequence :: sequence ()
     {
-        used = 0;
-        capacity = DEFAULT_CAPACITY;
-        data = new value_type[DEFAULT_CAPACITY];
-        current_index = 0;
+        head_ptr = NULL;
+        tail_ptr = NULL;
+        precursor = NULL;
+        cursor = NULL;
+        many_nodes = 0;
         
         //cout << "Class created\n";
     }
     
     sequence :: sequence (const sequence& source)
     {
-        used = source.used;
-        capacity = source.capacity;
-        data = new value_type[source.capacity];
-        copy(source.data, source.data+used, data);
-        current_index = source.current_index;
+        many_nodes = source.many_nodes;
+        list_copy(source.head_ptr, head_ptr, tail_ptr);
+        if (source.precursor == NULL)
+        {
+            precursor = NULL;
+            cursor = head_ptr;
+        }
+        else //no current item
+        {
+            size_type count = 1;
+            node* current = source.head_ptr'
+            while (current != source.precursor)
+            {
+                ++count;
+                current = current -> link();
+            }
+            precursor = list_locate (head_ptr, count);
+            cursor = precursor -> link();
+        }
         
         //cout << "Class copied\n";
     }
     
     sequence :: ~sequence()
     {
-        //cout << "object is being deleted\n"; //not necessary to keep
+        //cout << "Object is being deleted\n"; //not necessary to keep
     }
     
     //Modification member functions
@@ -79,10 +94,9 @@ namespace main_savitch_5
     void sequence :: advance()
     {
         assert(is_item());
-        if(current_index == used)
-            current_index = -1;
-        else
-            current_index++;
+        
+        precursor = cursor;
+        cursor = cursor -> link();
         
         //cout << "advance\n";
     }
@@ -138,24 +152,36 @@ namespace main_savitch_5
     
     void sequence :: operator =(const sequence& source)
     {
-        cout << "operator= start\n";
+        //cout << "operator= start\n";
         
-        value_type* new_data;
-        if(this == &source)
-            return;
-        if (capacity != source.capacity)
+        if (this != &source)
         {
-            new_data = new value_type[source.capacity];
-            delete[] data;
-            data = new_data;
-            capacity = source.capacity;
+            if (size() > 0)
+                list_clear (head_ptr);
+            may_nodes = source.many_nodes;
+            list_copy(source.head_ptr, head_ptr, tail_ptr);
+            if (source.precursor = NULL)
+            {
+                precursor = NULL;
+                cursor = head_ptr;
+            }
+            else
+            {
+                size_type count = 1;
+                node* current = source.head_ptr;
+                while (current != source.precursor)
+                {
+                    ++count;
+                    current = current -> link();
+                }
+                
+            }
         }
-        used = source.used;
-        copy(source.data, source.data+used, data);
-        current_index = source.current_index;
+        
         //cout << "operator= end\n";
     }
     
+    /*
     //Constant member functions
     sequence :: size_type sequence :: size() const
     {
@@ -164,12 +190,12 @@ namespace main_savitch_5
     
     bool sequence :: is_item() const
     {
-        return(current_index != NULL);
-    }
+        return(cursor != NULL);
+    }*/
     
     sequence :: value_type sequence :: current() const
     {
         assert(is_item());
-        return data[current_index];
+        return cursor -> data();
     }
 };
