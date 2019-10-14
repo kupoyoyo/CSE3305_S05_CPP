@@ -652,9 +652,7 @@ int main( )
 {
     int sum = 0;
     
-    
     cout << "Running " << DESCRIPTION[0] << endl;
-
     sum += run_a_test(1, DESCRIPTION[1], test1, POINTS[1]); cout << sum << endl;
     sum += run_a_test(2, DESCRIPTION[2], test2, POINTS[2]); cout << sum << endl;
     sum += run_a_test(3, DESCRIPTION[3], test3, POINTS[3]); cout << sum << endl;

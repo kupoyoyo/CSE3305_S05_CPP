@@ -39,7 +39,7 @@ namespace main_savitch_5
         else //no current item
         {
             size_type count = 1;
-            node* current = source.head_ptr'
+            node* current = source.head_ptr;
             while (current != source.precursor)
             {
                 ++count;
@@ -54,40 +54,18 @@ namespace main_savitch_5
     
     sequence :: ~sequence()
     {
-        //cout << "Object is being deleted\n"; //not necessary to keep
+        if(head_ptr != NULL)
+        {
+            list_clear(head_ptr);
+        }
     }
     
     //Modification member functions
-    /*void sequence :: resize(size_type new_capacity)
-    {
-        //cout << "resize started\n";
-        
-        value_type* new_array;
-        if(new_capacity == capacity)
-        {
-            return;
-        }
-        if(new_capacity < capacity)
-        {
-            new_capacity = used; //Can't allocate less than used
-            return;
-        }
-        new_array = new value_type [new_capacity];
-        copy(data, data+used, new_array);
-        delete[] data;
-        data = new_array;
-        capacity = new_capacity;
-        
-        //cout << "resize end\n";
-    }*/
     
     void sequence :: start()
     {
-        if(used != 0)
-            current_index = 0;
-        else
-            current_index = -1;
-        
+        precursor = NULL;
+        cursor = head_ptr;
         //cout << "start\n";
     }
     
@@ -102,50 +80,78 @@ namespace main_savitch_5
     }
     
     void sequence :: insert(const value_type& entry)
-    {
-        if(used >= capacity)
-            resize(used);
+    { 
+        if (!is_item())
+            start();
         
-        if(!is_item())
-            current_index = 0;
-        
-        for(size_type i = used; i > current_index; --i)
-            data[i] = data[i-1];
-        data[current_index] = entry;
-        ++used;
+        if (cursor == head_ptr)
+        {
+            list_head_insert(head_ptr, entry);
+            cursor = head_ptr;
+            if(many_nodes == 0)
+                tail_ptr = head_ptr;
+        }
+        else
+        {
+            node* temp = head_ptr;
+            while(temp != precursor)
+                temp = temp -> link();
+            list_insert(temp, entry);
+            if (temp == tail_ptr)
+                tail_ptr = tail_ptr -> link();
+            cursor = precursor -> link();
+        }
+        many_nodes++;
         
         //cout << "insert\n";
     }
     
     void sequence :: attach(const value_type& entry)
     {
-        if(used >= capacity)
-            resize(used+1);
-            
-        if(!is_item())
+        if (!is_item())
         {
-            current_index = used;
-            data[current_index] = entry;
-            used++;
+            if(many_nodes == 0)
+            {
+                list_head_insert(head_ptr, entry);
+                tail_ptr = head_ptr;
+                cursor = head_ptr;
+                precursor = NULL;
+            }
+            else
+            {
+                list_insert(tail_ptr, entry);
+                tail_ptr = tail_ptr -> link();
+                
+            }
         }
         else
         {
-            for(size_type i = used; i > current_index+1; --i)
-                data[i] = data[i-1];
-            data[current_index+1] = entry;
-            ++used;
-            current_index++;
+            list_insert(cursor, entry);
+            precursor = cursor;
+            cursor = cursor -> link();
+            if (tail_ptr == precursor)
+                tail_ptr = cursor;
         }
+        many_nodes++;
+        
         //cout << "attach\n";
     }
     
     void sequence :: remove_current()
-    {
+    {        
         assert(is_item());
         
-        for(size_type i = current_index; i < used-1; i++)
-            data[i] = data[i+1];
-        used--;
+        if (cursor == head_ptr)
+        {
+            list_head_remove(head_ptr);
+            cursor = head_ptr;
+        }
+        else
+        {
+            list_remove(precursor);
+            cursor = precursor -> link();
+        }
+        many_nodes--;
         
         //cout << "remove_current\n";
     }
@@ -158,9 +164,9 @@ namespace main_savitch_5
         {
             if (size() > 0)
                 list_clear (head_ptr);
-            may_nodes = source.many_nodes;
+            many_nodes = source.many_nodes;
             list_copy(source.head_ptr, head_ptr, tail_ptr);
-            if (source.precursor = NULL)
+            if (source.precursor == NULL)
             {
                 precursor = NULL;
                 cursor = head_ptr;
@@ -174,25 +180,14 @@ namespace main_savitch_5
                     ++count;
                     current = current -> link();
                 }
-                
+                precursor = list_locate(head_ptr, count);
+                cursor = precursor -> link();
             }
         }
         
         //cout << "operator= end\n";
     }
-    
-    /*
-    //Constant member functions
-    sequence :: size_type sequence :: size() const
-    {
-        return many_nodes;
-    }
-    
-    bool sequence :: is_item() const
-    {
-        return(cursor != NULL);
-    }*/
-    
+
     sequence :: value_type sequence :: current() const
     {
         assert(is_item());
