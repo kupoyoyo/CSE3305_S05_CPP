@@ -99,4 +99,6 @@
     <File Name="../sequence3.h"/>
     <File Name="../sequence_exam3.cpp"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>

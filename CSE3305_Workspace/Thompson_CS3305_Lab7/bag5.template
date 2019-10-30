@@ -12,7 +12,9 @@
 #include <cstdlib>  // Provides NULL, rand
 #include "node2.h"  // Provides node 
 
-
+using namespace std;
+namespace main_savitch_6B
+{
 template <class Item>
 bag<Item>::bag( )
 // Library facilities used: cstdlib
@@ -161,4 +163,36 @@ bag<Item> operator +(const bag<Item>& b1, const bag<Item>& b2)
 	return answer;
 }
 
+template <class Item>
+void bag<Item>::print_value_range(const Item& x, const Item& y)
+{
+    assert(head_ptr != NULL);
+    node<Item> *cursor = list_locate(head_ptr, x);
+    
+    while((cursor != NULL) && cursor -> data() != y)
+    {
+        cout << cursor -> data() << " ";
+        cursor = cursor -> link();
+    }
+    cout << endl;
+}
 
+template <class Item>
+void bag<Item>::remove_repetitions()
+{
+    assert(head_ptr != NULL);
+    node<Item> *p;
+    node<Item> *q;
+    
+    for(p = head_ptr; p != NULL; p = p -> link())
+    {
+        q = p;
+        while(q != NULL && q -> link() != NULL)
+        {
+            if ((p -> data()) == (q -> link()) -> data())
+                list_remove(q);
+            q = q -> link();
+        }
+    }
+}
+}

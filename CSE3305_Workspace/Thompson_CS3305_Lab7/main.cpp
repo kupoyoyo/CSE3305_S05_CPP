@@ -1,37 +1,150 @@
 #include <cstdlib>
 #include <iostream>
-#include "queue4.h"
+#include <set>
+#include <algorithm>
+#include "node2.h"
+#include "bag5.h"
 
 using namespace std;
-using namespace main_savitch_8C;
+using namespace main_savitch_6B;
 
+// PROTOTYPE for a function used by this demonstration program
+template <class Item, class SizeType, class MessageType>
+void get_items(bag<Item>& collection, SizeType n, MessageType description)
+// Postcondition: The string description has been written as a prompt to the
+// screen. Then n items have been read from cin and added to the collection.
+// Library facilities used: iostream, bag4.h
+{
+    Item user_input; // An item typed by the program's user
+    SizeType i;
+
+    cout << "Please type " << n << " " << description;
+    cout << ", separated by spaces.\n";
+    cout << "Press the <return> key after the final entry:\n";
+    for (i = 1; i <= n; ++i)
+    {
+        cin >> user_input;
+        collection.insert(user_input);
+    }
+    cout << endl;
+}
 
 int main()
 {
-    queue<int> qint;
+    //demostrate how to use set template class
+    set <string> actors1;
+    set <string> actors2;
+    set <string> result;
+    set<string>::iterator role;
+    actors1.insert("moe");
+    actors1.insert("curly");
+    actors2.insert("larry");
+    actors2.insert("curly");
+    
+    for(role = actors1.begin(); role != actors1.end(); ++role)
+        cout<<*role<<" ";
+    cout<<endl;
+    
+    for(role = actors2.begin(); role != actors2.end(); ++role)
+        cout<<*role<<" ";
+    cout<<endl;
+    
+    // Notice how we create the output iterator for the fifth argument:
+    set_union(actors1.begin(), actors1.end(),
+              actors2.begin(), actors2.end(),
+              inserter(result, result.begin()));
+    for (role = result.begin(); role != result.end(); ++role) {
+        cout << *role << " ";
+    }
+    cout << endl;
+    
+    
+    //demonstrate how to use node iterator for node template class
+    node<int> *head_ptr = new node<int>();
+    list_head_insert(head_ptr, 42);
+    list_head_insert(head_ptr, 13);
+    list_head_insert(head_ptr, 67);
 
-    qint.push(45);
-    qint.push(56);
-    qint.push(67);
-    qint.push(78);
-    qint.push(89);
     
-    qint.print();
+    node_iterator<int> start(head_ptr);
+    node_iterator<int> finish;
+    node_iterator<int> position;
+    
+    for(position = start; position != finish; ++position)
+        cout<<*position<< " ";
+    cout<<endl;  
+    
+    
+    //demonstrate bag template class
+    bag<int> bag_of_int;
+    bag<string> bag_of_string;
 
-    qint.pop();  // 45
-    qint.pop();  // 56
-    
-    qint.print();
-    
-    qint.push(10);
-    qint.push(21);
-    
-    qint.print();
-    
-    qint.pop();  // 67
-    qint.pop();  // 78
+    bag_of_int.insert(3);
+    bag_of_string.insert("hello");
+    bag_of_string.insert("goodbye");
+    bag_of_string.insert("auf wiedersehen");
+    bag_of_string.insert("goodbye");
+    bag_of_string.insert("hello");
+    bag_of_string.insert("goodbye");
 
-    qint.print();
+    cout << "count of goodbye: " << bag_of_string.count("goodbye") << endl;
+    cout << "count of guten morgen: " << bag_of_string.count("guten morgen") << endl;
+    cout << "count of 3: " << bag_of_int.count(3) << endl;
+    
+
+    for(bag<string>::iterator cursor = bag_of_string.begin(); cursor != bag_of_string.end(); ++cursor)
+        cout<<*cursor<< " ";
+    cout<<endl;  
+    
+    bag<int> intBag;
+    int x, y;
+    
+    intBag.insert(7);
+    intBag.insert(6);
+    intBag.insert(5);
+    intBag.insert(4);
+    intBag.insert(3);
+    intBag.insert(2);
+    intBag.insert(1);
+    
+    x = 2;
+    y = 5;
+    cout << "Bag [1,2,3,4,5,6,7]\nx = " << x << "\ny = " << y << "\nprints ";
+    intBag.print_value_range(x, y);
+    
+    x = 2;
+    y = 78;
+    cout << "Bag [1,2,3,4,5,6,7]\nx = " << x << "\ny = " << y << "\nprints ";
+    intBag.print_value_range(x, y);
+    
+    x = 2;
+    y = 1;
+    cout << "Bag [1,2,3,4,5,6,7]\nx = " << x << "\ny = " << y << "\nprints ";
+    intBag.print_value_range(x, y);
+    
+    x = 8;
+    y = 5;
+    cout << "Bag [1,2,3,4,5,6,7]\nx = " << x << "\ny = " << y << "\nprints ";
+    intBag.print_value_range(x, y);
+    
+    bag<string> stringBag;
+    stringBag.insert("woah");
+    stringBag.insert("hey");
+    stringBag.insert("woah");
+    stringBag.insert("um");
+    stringBag.insert("hi");
+    stringBag.insert("hi");
+    stringBag.insert("woah");
+    stringBag.insert("um");
+    
+    for(bag<string>::iterator cursor = stringBag.begin(); cursor != stringBag.end(); ++cursor)
+        cout<<*cursor<< " ";
+    cout<<endl;
+    stringBag.remove_repetitions();
+    cout << "Repetitions removed\n";
+    for(bag<string>::iterator cursor = stringBag.begin(); cursor != stringBag.end(); ++cursor)
+        cout<<*cursor<< " ";
+    cout<<endl;
     
 	return EXIT_SUCCESS;
 }

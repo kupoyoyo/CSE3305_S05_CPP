@@ -1,0 +1,92 @@
+#include "stack_pair.h"
+#include <cassert>
+
+template <class T>
+stack_pair<T>::stack_pair() {
+    size = 0;
+    top_a = 0;
+    top_b = CAPACITY-1;
+}
+
+/*
+ * Insert an element into the stack
+ */
+template <class T>
+void stack_pair<T>::push_a(T item) {
+    assert(!is_full_a());
+    data[top_a] = item;
+    size++;
+    top_a++;
+}
+
+/*
+ * Insert an element into the stack
+ */
+template <class T>
+void stack_pair<T>::push_b(T item) {
+    assert(!is_full_b());
+    data[top_b] = item;
+    size++;
+    top_b--;
+}
+
+/*
+ * Remove an element from stack and return it
+ */
+template <class T>
+T stack_pair<T>::pop_a() {
+    assert(!is_empty_a());
+    size--;
+    top_a--;
+    return data[top_a];
+}
+
+/*
+ * Remove an element from stack and return it
+ */
+template <class T>
+T stack_pair<T>::pop_b() {
+    assert(!is_empty_b());
+    size--;
+    top_b++;
+    return data[top_b];
+}
+
+/*
+ * Return the size of the respective stack
+ */
+template <class T>
+size_t stack_pair<T>::size_a() {
+    return top_a;
+}
+
+template <class T>
+size_t stack_pair<T>::size_b() {
+    return CAPACITY - (top_b + 1);
+}
+
+template <class T>
+bool stack_pair<T>::is_empty_a() {
+    if(size == 0 || top_a == 0)
+        return true;
+    else
+        return false;
+}
+
+template <class T>
+bool stack_pair<T>::is_empty_b() {
+    if(size == 0 || top_b == CAPACITY-1)
+        return true;
+    else
+        return false;
+}
+
+template <class T>
+bool stack_pair<T>::is_full_a() {
+    return size == CAPACITY;
+}
+
+template <class T>
+bool stack_pair<T>::is_full_b() {
+    return size == CAPACITY;
+}

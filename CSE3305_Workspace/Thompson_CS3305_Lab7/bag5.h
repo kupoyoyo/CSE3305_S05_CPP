@@ -75,7 +75,8 @@
 #include <cstdlib>   // Provides NULL and size_t and NULL
 #include "node2.h"   // Provides node class
 
-
+namespace main_savitch_6B
+{
 template <class Item>
 class bag
 {
@@ -97,6 +98,8 @@ public:
         void insert(const Item& entry);
         void operator +=(const bag& addend);
         void operator =(const bag& source);
+        void print_value_range(const Item& x, const Item& y);
+        void remove_repetitions();
 	
         // CONST MEMBER FUNCTIONS
         size_type count(const Item& target) const;
@@ -122,7 +125,7 @@ private:
 template <class Item>
 bag<Item> operator +(const bag<Item>& b1, const bag<Item>& b2);
 
-
+}
 // The implementation of a template class must be included in its header file:
 #include "bag5.template"
 
