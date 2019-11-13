@@ -41,7 +41,7 @@
         
         //     Precondition: length( ) > 0
         //     Postcondition: The return value is the largest number in the
-        //     statistician's sequence.
+        //     statistician's sequence.clTabCtrl
         double maximum( ) const;
         
         // FRIEND FUNCTIONS

@@ -13,7 +13,10 @@
   <Project Name="Thompson_CS3305_Lab7" Path="Thompson_CS3305_Lab7/Thompson_CS3305_Lab7.project" Active="No"/>
   <Project Name="Thompson_CS3305_Assignment5" Path="Thompson_CS3305_Assignment5/Thompson_CS3305_Assignment5.project" Active="No"/>
   <Project Name="Thompson_CS3305_Lab8" Path="Thompson_CS3305_Lab8/Thompson_CS3305_Lab8.project" Active="No"/>
-  <Project Name="Thompson_CS3305_Lab9" Path="Thompson_CS3305_Lab9/Thompson_CS3305_Lab9.project" Active="Yes"/>
+  <Project Name="Thompson_CS3305_Lab9" Path="Thompson_CS3305_Lab9/Thompson_CS3305_Lab9.project" Active="No"/>
+  <Project Name="Thompson_CS3305_Assignment6" Path="Thompson_CS3305_Assignment6/Thompson_CS3305_Assignment6.project" Active="No"/>
+  <Project Name="Thompson_CS3305_Lab10" Path="Thompson_CS3305_Lab10/Thompson_CS3305_Lab10.project" Active="No"/>
+  <Project Name="Thompson_CS3305_Lab11" Path="Thompson_CS3305_Lab11/Thompson_CS3305_Lab11.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
@@ -32,6 +35,9 @@
       <Project Name="Thompson_CS3305_Assignment5" ConfigName="Debug"/>
       <Project Name="Thompson_CS3305_Lab8" ConfigName="Debug"/>
       <Project Name="Thompson_CS3305_Lab9" ConfigName="Debug"/>
+      <Project Name="Thompson_CS3305_Assignment6" ConfigName="Debug"/>
+      <Project Name="Thompson_CS3305_Lab10" ConfigName="Debug"/>
+      <Project Name="Thompson_CS3305_Lab11" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -50,6 +56,9 @@
       <Project Name="Thompson_CS3305_Assignment5" ConfigName="Release"/>
       <Project Name="Thompson_CS3305_Lab8" ConfigName="Release"/>
       <Project Name="Thompson_CS3305_Lab9" ConfigName="Release"/>
+      <Project Name="Thompson_CS3305_Assignment6" ConfigName="Release"/>
+      <Project Name="Thompson_CS3305_Lab10" ConfigName="Release"/>
+      <Project Name="Thompson_CS3305_Lab11" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

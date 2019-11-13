@@ -28,15 +28,25 @@
 
 using namespace std;
 
-void recursive_print(int lvl)
+void recursive_print(int lvl, int j)
 {
-    assert (lvl > 0);
-    cout << "This was written by call number " << lvl << ".\n";
-    if (lvl > 1)
+    assert (lvl >= 0);
+    
+    for(int i = 0; i < j; i++)
     {
-        recursive_print(lvl-1);
+        cout << " ";
     }
-    cout << "This ALSO written by call number " << lvl << ".\n";
+    cout << "This was written by call number " << j << ".\n";
+    if (lvl != j)
+    {
+        recursive_print(lvl, j+1);
+    }
+    for(int i = 0; i < j; i++)
+    {
+        cout << " ";
+    }
+    cout << "This ALSO written by call number " << j << ".\n";
+
 }
 
 double sumOver(double n)
@@ -46,10 +56,11 @@ double sumOver(double n)
     double sum = 0;
     if (n == 0)
         return 0;
-    else if (n > 1)
+    else if (n >= 1)
     {
-        
+        sum += 1/n + sumOver(n-1);
     }
+    return sum;
 }
 
 int main()
@@ -60,10 +71,10 @@ int main()
     cout << "Enter the how deep the first recursive function should go: ";
     cin >> levels;
     
-    recursive_print(levels);
+    recursive_print(levels, 1);
     
     cout << "\nEnter the positive number you want to find the sum of reciprocals: ";
     cin >> num;
     
-    cout << sumOver(num) << endl;
+    cout << "The sum of reciprocals is: " << sumOver(num) << endl;
 }

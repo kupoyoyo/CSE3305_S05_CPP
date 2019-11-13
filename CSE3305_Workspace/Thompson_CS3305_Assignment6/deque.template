@@ -1,0 +1,156 @@
+#include <cassert>    // Provides assert
+#include <cstdlib>    // Provides NULL and size_t
+#include "node2.h"
+
+namespace main_savitch_6B
+{
+    template <class T>
+    deque<T>::deque()
+    {
+        count = 0;
+        first = NULL;
+        last = NULL;
+    }
+
+    template <class T>
+    deque<T>::~deque()
+    {
+        
+    }
+    
+    template <class T>
+    deque<T>::deque(const deque<T>& dq)
+    {
+        count = 0;
+        first = NULL;
+        last = NULL;
+        
+        list_copy(dq.first, first, last);
+        count = dq.count;
+    }
+    
+    template <class T>
+    deque<T>& deque<T>::operator = (const deque<T>& dq)
+    {
+        list_copy(dq.first, first, last);
+        count = dq.count;
+    }
+    
+    template <class T>
+    T& deque<T>::front()
+    {
+        assert(!empty());
+        return &first;
+    }
+    
+    template <class T>
+    T deque<T>::front() const
+    {
+        assert(!empty());
+        return first;
+    }
+    
+    template <class T>
+    T& deque<T>::back()
+    {
+        assert(!empty());
+        return &last;
+    }
+    
+    template <class T>
+    T deque<T>::back() const
+    {
+        assert(!empty());
+        return last;
+    }
+    
+    template <class T>
+    void deque<T>::push_front (const T& entry)
+    {
+        //assert(not full());
+        list_head_insert(first, entry);
+    }
+    
+    template <class T>
+    void deque<T>::push_back (const T& entry)
+    {
+        //assert(not full());
+        list_insert(last, entry);
+    }
+    
+    template <class T>
+    void deque<T>::pop_front ()
+    {
+        assert(!empty());
+        list_head_remove(first);
+    }
+    
+    template <class T>
+    void deque<T>::pop_back ()
+    {
+        assert(!empty());
+        
+        T* cursor = first;
+        
+        while (cursor -> link() != last)
+        {
+            cursor = cursor -> link();
+        }
+        last = cursor;
+        list_remove(cursor);
+    }
+    
+    template <class T>
+    size_t deque<T>::size () const
+    {
+        return count;
+    }
+    
+    template <class T>
+    bool deque<T>::empty () const
+    {
+        if (count == 0)
+            return true;
+        else
+            return false;
+        
+        //return (size == 0);
+    }
+    
+    template <class U>
+    bool operator == (const deque<U>& dq1, const deque<U>& dq2)
+    {
+        if (dq1.count == dq2.count)
+        {
+            if (dq1.front() == dq2.front())
+            {
+                U* cursor1 = dq1.front();
+                U* cursor2 = dq2.front();
+                while (cursor1 != dq1.back() || cursor2 != dq2.back())
+                {
+                    if (cursor1 != cursor2)
+                        return false;
+                    cursor1 = cursor1 -> link();
+                    cursor2 = cursor2 -> link();
+                }
+            }
+            else
+                return false;
+        }
+        else
+            return false;
+        return true;
+    }
+    
+    template <class U>
+    std::ostream& operator<< (std::ostream& out, const deque<U>& dq)
+    {
+        U *cursor = dq.front();
+        while(cursor != NULL)
+        {
+            out += cursor -> data();
+            cursor = cursor -> link();
+        }
+        return out;
+    }
+}
