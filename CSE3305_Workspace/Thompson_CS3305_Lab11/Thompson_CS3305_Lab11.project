@@ -92,5 +92,11 @@
       </Completion>
     </Configuration>
   </Settings>
-  <VirtualDirectory Name="src"/>
+  <VirtualDirectory Name="src">
+    <File Name="main.cpp"/>
+    <File Name="bst.template"/>
+    <File Name="bst.h"/>
+    <File Name="bintree.template"/>
+    <File Name="bintree.h"/>
+  </VirtualDirectory>
 </CodeLite_Project>
